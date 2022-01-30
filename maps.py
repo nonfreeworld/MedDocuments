@@ -83,40 +83,60 @@ def position_func():
 # кожные покровы
 def skin_covers_func():
     skinCovers = 'Кожные покровы:'
-    print('Состояние кожных покровов: сухие(1), влажные(2), обычной окраски(3), бледные(4)'
+    print('Состояние кожных покровов: сухие(1), влажные(2), обычной окраски(3), бледные(4), '
     + 'гиперемия(5), цианоз(6), желтушность(7), описать кожные покровы(8), закончить ввод(9).')
+    
+    skinCoversDict = dict()
+    skinCoversDict['сухие'] = False
+    skinCoversDict['влажные'] = False
+    skinCoversDict['обычной окраски'] = False
+    skinCoversDict['бледные'] = False
+    skinCoversDict['гиперемия'] = False
+    skinCoversDict['цианоз'] = False
+    skinCoversDict['желтушность'] = False
+    skinCoversDict['описать кожные покровы'] = False
+    skinCoversDict['закончить ввод'] = False
+    
     userInput = True
     while userInput:
         skinCoversUserInput = input("Введите состояние кожных покровов пациента:")
         if skinCoversUserInput == '1':
-            skinCoversUserInput = '<u>сухие</u>, влажные, обычной окраски, бледные, гиперемия, цианоз, желтушность'
-            # skinCoversCopy = skinCoversUserInput 2 переменную
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['сухие'] = True
         elif skinCoversUserInput == '2':
-            skinCoversUserInput = 'сухие, <u>влажные</u>, обычной окраски, бледные, гиперемия, цианоз, желтушность'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['влажные'] = True
         elif skinCoversUserInput == '3':
-            skinCoversUserInput = 'сухие, влажные, <u>обычной окраски</u>, бледные, гиперемия, цианоз, желтушность'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['обычной окраски'] = True
         elif skinCoversUserInput == '4':
-            skinCoversUserInput = 'сухие, влажные, обычной окраски, <u>бледные</u>, гиперемия, цианоз, желтушность'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['бледные'] = True
         elif skinCoversUserInput == '5':
-            skinCoversUserInput = 'сухие, влажные, обычной окраски, бледные, <u>гиперемия</u>, цианоз, желтушность'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['гиперемия'] = True
         elif skinCoversUserInput == '6':
-            skinCoversUserInput = 'сухие, влажные, обычной окраски, бледные, гиперемия, <u>цианоз</u>, желтушность'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['цианоз'] = True
         elif skinCoversUserInput == '7':
-            skinCoversUserInput = 'сухие, влажные, обычной окраски, бледные, гиперемия, цианоз, <u>желтушность</u>'
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['желтушность'] = True
         elif skinCoversUserInput == '8':
-            userInputSkinCovers = input("Опишите кожные покровы: ")
-            skinCoversUserInput = ('<u>' + userInputSkinCovers + '</u>')
-            file.write(skinCovers + ' ' + skinCoversUserInput)
+            skinCoversDict['описать кожные покровы'] = True
         elif skinCoversUserInput == '9':
             userInput = False
-    file.write(newline)
+        
+    file.write(skinCovers + ' ')
+        
+    for key, value in skinCoversDict.items():
+        if value == True:
+            if key == 'закончить ввод':
+                file.write(' ')
+            elif key == 'описать кожные покровы':
+                userTimeInput = input('Опишите кожные покровы: ')
+                file.write('<u>' + userTimeInput + '</u>')
+            else:
+                file.write('<u>' + key + '</u>' + ', ')
+        elif value == False:
+            if key == 'закончить ввод':
+                file.write(' ')
+            elif key == 'описать кожные покровы':
+                file.write(' ')
+            else:
+                file.write(key + ', ')
 
 
 # главная программа
