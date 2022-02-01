@@ -128,6 +128,8 @@ def skin_covers_func():
             elif key == 'описать кожные покровы':
                 userTimeInput = input('Опишите кожные покровы: ')
                 file.write('<u>' + userTimeInput + '</u>')
+            elif key == 'желтушность':
+                file.write('<u>' + key + '</u>')   
             else:
                 file.write('<u>' + key + '</u>' + ', ')
         elif value == False:
@@ -135,9 +137,44 @@ def skin_covers_func():
                 file.write(' ')
             elif key == 'описать кожные покровы':
                 file.write(' ')
+            elif key == 'желтушность':
+                file.write('<u>' + key + '</u>')
             else:
                 file.write(key + ', ')
+    file.write(newline)
 
+#сыпь
+#Сыпь: ___ Зев: ___ Миндалины: ___
+def rash_func():
+    # раздел сыпь
+    rash = 'Сыпь: '
+    rashUserInput = input("Наличие сыпи у пациента: Отсутствует(1), Свое описание(2)" + ' ')
+
+    if rashUserInput == '1':
+        file.write(rash + ' ' + '<u>' + 'Отсутствует' + '</u>' + ' ')
+    else:
+        userInput = input("Опишите сыпь: ")
+        file.write(rash + ' ' + '<u>' + userInput + '</u>' + ' ')
+
+    # раздел зев
+    zev = 'Зев: '
+    zevUserInput = input("Опишите зев пациента: Розовый(1), Свое описание(2)" + ' ')
+
+    if zevUserInput == '1':
+        file.write(zev + ' ' + '<u>' + 'Розовый' + '</u>' + ' ')
+    else:
+        userInput= input("Опишите зев пациента:" + ' ')
+        file.write(zev + ' ' + '<u>' + userInput + '</u>' + ' ')
+
+    # раздел миндалины
+    tonsils = 'Миндалины: '
+    tonsilsUserInput = input("Опишите миндалины пациента: Не увеличены, без налета(1), свое описание(2)" + ' ')
+
+    if tonsilsUserInput == '1':
+        file.write(tonsils + ' ' + '<u>' + 'Не увеличены, без налета' + '</u>' + ' ')
+    else:
+        userInput = input("Опишите миндалины пациента:" + ' ')
+        file.write(tonsils + ' ' + '<u>' + userInput + '</u>' + ' ')
 
 # главная программа
 file = open('list.md', 'w') # открываем карту на запись
@@ -148,4 +185,5 @@ conscience_func() # уровень сознания
 glasgo_func() # шкала комы Глазго
 position_func() # позиция пациента
 skin_covers_func() # кожные покровы
+rash_func() # сыпь, зев, миндалины
 file.close() # закрываем файл
