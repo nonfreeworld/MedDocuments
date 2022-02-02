@@ -1,3 +1,5 @@
+import subprocess
+import shlex
 newline = '<br>'
 
 # жалобы
@@ -144,7 +146,6 @@ def skin_covers_func():
     file.write(newline)
 
 #сыпь
-#Сыпь: ___ Зев: ___ Миндалины: ___
 def rash_func():
     # раздел сыпь
     rash = 'Сыпь: '
