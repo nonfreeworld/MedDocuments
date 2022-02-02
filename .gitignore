@@ -1,5 +1,5 @@
 # test .md
 list.md
 # test.pdf
-test.pdf
 *.pdf
+!abc.pdf
