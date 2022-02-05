@@ -1,8 +1,6 @@
 **MedDocuments**
 My education project  
 Use:  
-Python maps.py  
+Python html_exsample.py  
 Then:  
-sh date.sh  
-
-(you need to md2pdf. In arch yay -S md2pdf)
+Open and print in firefox
