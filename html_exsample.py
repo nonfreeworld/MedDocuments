@@ -4,13 +4,11 @@ def html_begin():
   file.write('<html>')
   file.write('  <head>')
   file.write('    <meta charset="utf-8">')
-  file.write('    <link rel="stylesheet" type="text/css" href="style.css">')
   file.write('  </head>')
-  file.write('  <body>')
+  file.write('  <body style="font-family:ubuntu; font-size: 9px;">')
 
 def html_exit():
   file.write('  </body>')
-  file.write('  </body')
   file.write('</html>')
 
 # жалобы
@@ -159,37 +157,81 @@ def skin_covers_func():
 
   file.write('<br>')
 
-#сыпь
+#сыпь зев
 def rash_func():
-    # раздел сыпь
-    rash = 'Сыпь: '
-    rashUserInput = input("Наличие сыпи у пациента: Отсутствует(1), Свое описание(2)" + ' ')
+  # раздел сыпь
+  rash = 'Сыпь: '
+  rashUserInput = input("Наличие сыпи у пациента: Отсутствует(1), Свое описание(2)" + ' ')
 
-    if rashUserInput == '1':
-        file.write(rash + ' ' + '<u>' + 'Отсутствует' + '</u>' + ' ')
-    else:
-        userInput = input("Опишите сыпь: ")
-        file.write(rash + ' ' + '<u>' + userInput + '</u>' + ' ')
+  if rashUserInput == '1':
+    file.write(rash + ' ' + '<u>' + 'Отсутствует' + '</u>' + ' ')
+  else:
+    userInput = input("Опишите сыпь: ")
+    file.write(rash + ' ' + '<u>' + userInput + '</u>' + ' ')
 
-    # раздел зев
-    zev = 'Зев: '
-    zevUserInput = input("Опишите зев пациента: Розовый(1), Свое описание(2)" + ' ')
+  # раздел зев
+  zev = 'Зев: '
+  zevUserInput = input("Опишите зев пациента: Розовый(1), Свое описание(2)" + ' ')
 
-    if zevUserInput == '1':
-        file.write(zev + ' ' + '<u>' + 'Розовый' + '</u>' + ' ')
-    else:
-        userInput= input("Опишите зев пациента:" + ' ')
-        file.write(zev + ' ' + '<u>' + userInput + '</u>' + ' ')
+  if zevUserInput == '1':
+    file.write(zev + ' ' + '<u>' + 'Розовый' + '</u>' + ' ')
+  else:
+    userInput= input("Опишите зев пациента:" + ' ')
+    file.write(zev + ' ' + '<u>' + userInput + '</u>' + ' ')
 
-    # раздел миндалины
-    tonsils = 'Миндалины: '
-    tonsilsUserInput = input("Опишите миндалины пациента: Не увеличены, без налета(1), свое описание(2)" + ' ')
+  # раздел миндалины
+  tonsils = 'Миндалины: '
+  tonsilsUserInput = input("Опишите миндалины пациента: Не увеличены, без налета(1), свое описание(2)" + ' ')
 
-    if tonsilsUserInput == '1':
-        file.write(tonsils + ' ' + '<u>' + 'Не увеличены, без налета' + '</u>' + ' ')
-    else:
-        userInput = input("Опишите миндалины пациента:" + ' ')
-        file.write(tonsils + ' ' + '<u>' + userInput + '</u>' + ' ')
+  if tonsilsUserInput == '1':
+    file.write(tonsils + ' ' + '<u>' + 'Не увеличены, без налета' + '</u>' + ' ')
+  else:
+    userInput = input("Опишите миндалины пациента:" + ' ')
+    file.write(tonsils + ' ' + '<u>' + userInput + '</u>' + ' ')
+  file.write('<br>')
+
+
+# лимфоузлы пролежни отеки температура
+def lymph_nodes():
+  # раздел лимфоузлы
+  lymph = 'Лимфоузлы '
+  lymphUserInput = input("Лимфоузлы: 1. Не увеличены 2. Опишите лимфоузлы пациента ")
+
+  if lymphUserInput == '1':
+    file.write(lymph + ' ' + '<u>' + 'Не увеличены ' + '</u>' + ' ')
+  else:
+    userInput = input("Опишите лимфоузлы пациента: ")
+    file.write(lymph + ' ' + '<u>' + userInput + '</u>' + ' ')
+
+  # раздел пролежни
+def bed_sores():
+  bedsores = 'Пролежни '
+  bedsoresUserInput = input("Если ли пролежни у пациента: 1. Пролежней нет 2. Опишите пролежни ")
+
+  if bedsoresUserInput == '1':
+    bedsoresOutput = file.write(bedsores + ' ' + '<u>' + 'Нет ' + '</u>' + ' ')
+    return bedsoresOutput
+  else:
+    userInput = input("Опишите пролежни: ")
+    bedsoresOutput = file.write(bedsores + ' ' + '<u>' + userInput + '</u>' + ' ')
+    return bedsoresOutput
+
+# раздел Отеки
+def swelling_func():
+  swelling = 'Отеки '
+  swellingUserInput = input("Есть ли отеки у пациентка: 1. Нет 2. Опишите отеки пациента ")
+
+  if swellingUserInput == '1':
+    file.write(swelling + ' ' + '<u>' + 'Нет ' + '</u>' + ' ')
+  else:
+    userInput = input("Опишите отеки пациента: ")
+    file.write(swelling + ' ' + '<u>' + userInput + '</u>' + ' ')
+
+# раздел температура
+def temperature_func():
+  temperature = 't\u2103'
+  temperatureUserInput = input("Введите температуру пациента: ")
+  file.write(temperature + ' ' + '<u>' + temperatureUserInput + '</u>')
 
 # main app
 file = open('example.html', 'w') # открываем главный файл
@@ -202,5 +244,9 @@ glasgo_func()
 position_func()
 skin_covers_func()
 rash_func()
+lymph_nodes()
+bed_sores()
+swelling_func()
+temperature_func()
 html_exit()
 file.close()
