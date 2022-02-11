@@ -5,7 +5,7 @@ def html_begin():
   file.write('  <head>')
   file.write('    <meta charset="utf-8">')
   file.write('  </head>')
-  file.write('  <body style="font-family:ubuntu; font-size: 9px;">')
+  file.write('  <body style="font-family:free sans; font-size: 13px;">')
 
 def html_exit():
   file.write('  </body>')
@@ -54,22 +54,22 @@ def conscience_func():
   conscienceUserInput = input("Выберите уровень сознания пациента: ")
 
   if conscienceUserInput == '1':
-    conscienceUserChoise = '<u>ясное</u>, оглушение, сопор, кома -- глубина по шкале'
+    conscienceUserChoise = '<u>ясное</u>, оглушение, сопор, кома - '
     file.write(conscience + ' ' + conscienceUserChoise + ' ')
   elif conscienceUserInput == '2':
-    conscienceUserChoise = 'ясное, <u>оглушение</u>, сопор, кома -- глубина по шкале'
+    conscienceUserChoise = 'ясное, <u>оглушение</u>, сопор, кома - '
     file.write(conscience + ' ' + conscienceUserChoise + ' ')
   elif conscienceUserInput == '3':
-    conscienceUserChoise = 'ясное, оглушение, <u>сопор</u>, кома -- глубина по шкале'
+    conscienceUserChoise = 'ясное, оглушение, <u>сопор</u>, кома - '
     file.write(conscience + ' ' + conscienceUserChoise + ' ')
   elif conscienceUserInput == '4':
-    conscienceUserChoise = 'ясное, оглушение, сопор, <u>кома</u> -- глубина по шкале'
+    conscienceUserChoise = 'ясное, оглушение, сопор, <u>кома</u> - '
     file.write(conscience + ' ' + conscienceUserChoise + ' ')
   file.write('<br>')
 
 # Глазго 15 баллов Положение активное, пассивное, вынужденное:
 def glasgo_func():
-  glasgo = 'Глазго'
+  glasgo = 'глубина по шкале Глазго'
   glasgoUserUnput = input("Введите баллы по шкале Глазго ")
   file.write(glasgo + ' ' + '<u>' + glasgoUserUnput + ' баллов ' + '</u>')
 
@@ -232,6 +232,75 @@ def temperature_func():
   temperature = 't\u2103'
   temperatureUserInput = input("Введите температуру пациента: ")
   file.write(temperature + ' ' + '<u>' + temperatureUserInput + '</u>')
+  file.write('<br>')
+
+# раздел органов дыхания
+def respiratory_organs_func():
+  respiratoryOrgans = '<b>Органы дыхания: </b>'
+  respInMin = 'ЧДД '
+  respInMinUserInput = input("Введите частоту дыхательных движений: ")
+
+  respiratoryOrgansOutput = file.write(respiratoryOrgans + respInMin + '<u>' + respInMinUserInput + '</u>' + ' в мин.,' )
+  return respiratoryOrgansOutput
+
+def shortness_breath():
+  shortnessBreath = 'одышка '
+  shortnessBreathUserInput = input("Есть ли у пациента одышка? 1. экспираторная 2. инспираторная 3. смешанная 4. одышки нет ")
+
+  if shortnessBreathUserInput == '1':
+    shortnessBreathOutput = file.write(shortnessBreath + '<u>' + 'эксператорная, ' + '</u>' + 'инспираторная, смешанная. ')
+    return shortnessBreathOutput
+  elif shortnessBreathUserInput == '2':
+    shortnessBreathOutput = file.write(shortnessBreath + 'эксператорная, ' + '<u>' + 'инспираторная, ' + '</u>' +  'смешанная. ')
+    return shortnessBreathOutput
+  elif shortnessBreathUserInput == '3':
+    shortnessBreathOutput = file.write(shortnessBreath + 'эксператорная, ' + 'инспираторная, ' + '<u>' + 'смешанная. ' + '</u>')
+    return shortnessBreathOutput
+  else:
+    shortnessBreathOutput = file.write(shortnessBreath + 'эксператорная, ' + 'инспираторная, ' + 'смешанная. ')
+    return shortnessBreathOutput
+
+
+def path_breath():
+  pathBreath = 'Патологическое дыхание: '
+  pathBreathUserInput = input("Есть ли патологическое дыхание? ")
+
+  pathBreathOutput = file.write(pathBreath + '<u>' + pathBreathUserInput + '</u>')
+  return pathBreathOutput
+
+def auscultatively_func():
+  file.write('<br>')
+  auscultatively = 'Аускультативно: '
+  print("Дыхание пациента: 1. везикулярное 2. жесткое 3. бронхиальное. 4. пуэрильное 5. ослаблено 6. отсутствует в (укажите где)")
+  auscultativelyUserInput = input("Введите тип дыхания во время аускультации?")
+  
+  if auscultativelyUserInput == '1':
+    auscultativelyOutput = file.write(auscultatively + '<u>' + 'везикулярное, ' + '</u>' + 'жесткое, ' + 'бронхиальное, ' + \
+                                      'пуэрильное, ' + 'ослаблено, ' + 'отсутствует в ')
+    return auscultativelyOutput
+  elif auscultativelyUserInput == '2':
+    auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + '<u>' + 'жесткое, ' + '</u>' + 'бронхиальное, ' + \
+                                      'пуэрильное, ' + 'ослаблено, ' + 'отсутствует в ')
+    return auscultativelyOutput
+  elif auscultativelyUserInput == '3':
+    auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + 'жесткое, ' + '<u>' + 'бронхиальное, ' + '</u>' + \
+                                      'пуэрильное, ' + 'ослаблено, ' + 'отсутствует в ')
+    return auscultativelyOutput
+  elif auscultativelyUserInput == '4':
+    auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + 'жесткое, ' + 'бронхиальное, ' + \
+                                      '<u>' + 'пуэрильное, ' + '</u>' + 'ослаблено, ' + 'отсутствует в ')
+    return auscultativelyOutput
+  elif auscultativelyUserInput == '5':
+    auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + 'жесткое, ' + 'бронхиальное, ' + \
+                                      'пуэрильное, ' + '<u>' + 'ослаблено, ' + '</u>' + 'отсутствует в ')
+    return auscultativelyOutput
+  elif auscultativelyUserInput == '6':
+    userInput = input("Где отсутствует дыхание?")
+    auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + 'жесткое, ' + 'бронхиальное, ' + \
+                                      'пуэрильное, ' + 'ослаблено, ' + '<u>' + 'отсутствует в ' + userInput + '</u>')
+    return auscultativelyOutput
+
+
 
 # main app
 file = open('example.html', 'w') # открываем главный файл
@@ -248,5 +317,9 @@ lymph_nodes()
 bed_sores()
 swelling_func()
 temperature_func()
+respiratory_organs_func()
+shortness_breath()
+path_breath()
+auscultatively_func()
 html_exit()
 file.close()
