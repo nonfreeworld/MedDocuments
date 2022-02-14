@@ -319,7 +319,24 @@ def auscultatively_func():
                                       'пуэрильное, ' + 'ослаблено, ' + '<u>' + 'отсутствует в ' + userInput + '</u>')
     return auscultativelyOutput
 
+# хрипы
+def rattle_func():
+  # Хрипы сухие (свистящие, жужжащие) в:
+  file.write('<br>')
+  rattle = 'Хрипы <i>сухие</i>'
 
+  rattleUserInput = input("Есть ли у пациента хрипы? Если есть - указать где (1. свистящие 2. жужжащие 3. нет)")
+  if rattleUserInput == '1':
+    rattleInputWhere = input("Локализация хрипов?")
+    rattleOutput = file.write(rattle + '(' + '<u>' + 'свистящие' + '</u>' + ', жужжащие)' + '<u>' + rattleInputWhere + '/<u>')
+    return rattleOutput
+  elif rattleUserInput == '2':
+    rattleInputWhere = input("Локализация хрипов?")
+    rattleOutput = file.write(rattle + '(свистящие, ' + '<u>' + 'жужжащие' + '</u>' + ')' + '<u>' + rattleInputWhere + '/<u>')
+    return rattleOutput
+  else:
+    rattleOutput = file.write(rattle + '(свистящие, жужжащие)')
+    return rattleOutput
 
 # main app
 file = open('example.html', 'w') # открываем главный файл
@@ -340,5 +357,6 @@ respiratory_organs_func()
 shortness_breath()
 path_breath()
 auscultatively_func()
+rattle_func()
 html_exit()
 file.close()
