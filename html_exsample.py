@@ -279,7 +279,7 @@ def shortness_breath():
     shortnessBreathOutput = file.write(shortnessBreath + 'эксператорная, ' + 'инспираторная, ' + 'смешанная. ')
     return shortnessBreathOutput
 
-
+# Патологическое дыхание
 def path_breath():
   pathBreath = 'Патологическое дыхание: '
   pathBreathUserInput = input("Есть ли патологическое дыхание? ")
@@ -290,12 +290,12 @@ def path_breath():
 def auscultatively_func():
   file.write('<br>')
   auscultatively = 'Аускультативно: '
-  print("Дыхание пациента: 1. везикулярное 2. жесткое 3. бронхиальное. 4. пуэрильное 5. ослаблено 6. отсутствует в (укажите где)")
-  auscultativelyUserInput = input("Введите тип дыхания во время аускультации?")
+  print("Дыхание пациента: 1. везикулярное 2. жесткое 3. бронхиальное. 4. пуэрильное 5. ослаблено 6. отсутствует в (укажите где) ")
+  auscultativelyUserInput = input("Введите тип дыхания во время аускультации? ")
   
   if auscultativelyUserInput == '1':
     auscultativelyOutput = file.write(auscultatively + '<u>' + 'везикулярное, ' + '</u>' + 'жесткое, ' + 'бронхиальное, ' + \
-                                      'пуэрильное, ' + 'ослаблено, ' + 'отсутствует в ')
+                                      'пуэрильное, ' + 'ослаблено, ' + 'отсутствует в ' + '<u>' + 'над всеми полями' + '</u>')
     return auscultativelyOutput
   elif auscultativelyUserInput == '2':
     auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + '<u>' + 'жесткое, ' + '</u>' + 'бронхиальное, ' + \
@@ -314,29 +314,146 @@ def auscultatively_func():
                                       'пуэрильное, ' + '<u>' + 'ослаблено, ' + '</u>' + 'отсутствует в ')
     return auscultativelyOutput
   elif auscultativelyUserInput == '6':
-    userInput = input("Где отсутствует дыхание?")
+    userInput = input("Где отсутствует дыхание? ")
     auscultativelyOutput = file.write(auscultatively + 'везикулярное, ' + 'жесткое, ' + 'бронхиальное, ' + \
                                       'пуэрильное, ' + 'ослаблено, ' + '<u>' + 'отсутствует в ' + userInput + '</u>')
     return auscultativelyOutput
 
 # хрипы
-def rattle_func():
+def dry_wheezing_func():
   # Хрипы сухие (свистящие, жужжащие) в:
   file.write('<br>')
-  rattle = 'Хрипы <i>сухие</i>'
+  dryWheezing = 'Хрипы <i>сухие</i>'
 
-  rattleUserInput = input("Есть ли у пациента хрипы? Если есть - указать где (1. свистящие 2. жужжащие 3. нет)")
-  if rattleUserInput == '1':
-    rattleInputWhere = input("Локализация хрипов?")
-    rattleOutput = file.write(rattle + '(' + '<u>' + 'свистящие' + '</u>' + ', жужжащие)' + '<u>' + rattleInputWhere + '/<u>')
-    return rattleOutput
-  elif rattleUserInput == '2':
-    rattleInputWhere = input("Локализация хрипов?")
-    rattleOutput = file.write(rattle + '(свистящие, ' + '<u>' + 'жужжащие' + '</u>' + ')' + '<u>' + rattleInputWhere + '/<u>')
-    return rattleOutput
+  dryWheezingUserInput = input("Есть ли у пациента сухие хрипы? Если есть - указать где (1. свистящие 2. жужжащие 3. нет) ")
+  if dryWheezingUserInput == '1':
+    dryWheezingInputWhere = input("Локализация хрипов? ")
+    dryWheezingOutput = file.write(dryWheezing + '(' + '<u>' + 'свистящие' + '</u>' + ', жужжащие ) ' + '<u>' + dryWheezingInputWhere + '</u>')
+    return dryWheezingOutput
+  elif dryWheezingUserInput == '2':
+    dryWheezingInputWhere = input("Локализация хрипов?")
+    dryWheezingOutput = file.write(dryWheezing + '(свистящие, ' + '<u>' + 'жужжащие ' + '</u>' + ') ' + '<u>' + dryWheezingInputWhere + '</u>')
+    return dryWheezingOutput
   else:
-    rattleOutput = file.write(rattle + '(свистящие, жужжащие)')
-    return rattleOutput
+    dryWheezingOutput = file.write(dryWheezing + '(свистящие, жужжащие) ' + '<u>' + 'отсутствуют во всех отделах' + '</u>')
+    return dryWheezingOutput
+
+def wet_wheezing_func():
+  # Влажные (мелко-, средне-, крупнопузырчатые) в:
+  file.write('<br>')
+  wetWheezing = '<i>Влажные </i>'
+
+  wetWheezingUserInput = input("Есть ли у пациента влажные хрипы? Если есть - указать где (1. мелко-, 2. средне-, 3. крупнопузырчатые 4. нет) ")
+  if wetWheezingUserInput == '1':
+    wetWheezingInputWhere = input("Локализация хрипов? ")
+    wetWheezingOutput = file.write(wetWheezing + '(' + '<u>' + 'мелко- ' + '</u>' + ', средне-, крупнопузырчатые) в: ' + '<u>' + wetWheezingInputWhere + '</u>')
+    return wetWheezingOutput
+  elif wetWheezingUserInput == '2':
+    wetWheezingInputWhere = input("Локализация хрипов?")
+    wetWheezingOutput = file.write(wetWheezing + '(мелко-, ' + '<u>' + 'средне- ' + '</u>' + ', крупнопузырчатые) в: ' + '<u>' + wetWheezingInputWhere + '</u>')
+    return wetWheezingOutput
+  elif wetWheezingUserInput == '3':
+    wetWheezingInputWhere = input("Локализация хрипов?")
+    wetWheezingOutput = file.write(wetWheezing + '(мелко-, ' + 'средне-, ' + '<u>' + 'крупнопузырчатые' + '</u>' + ') в: ' + '<u>' + wetWheezingInputWhere + '</u>')
+    return wetWheezingOutput
+  else:
+    wetWheezingOutput = file.write(wetWheezing + '(мелко-, средне-, крупнопузырчатые) в: ' + '<u>' + 'отсутствуют во всех отделах' + '</u>')
+    return wetWheezingOutput
+    
+    
+# Крепитация, шум трения плевры над:
+def crepitation_func():
+  file.write('<br>')
+  crepitationUserInput = input("Есть ли у пациента: 1. крепитация 2. шум трения плевры 3. нет ")
+  if crepitationUserInput == '1':
+    crepitationInputWhere = input("Локализация крепитации? ")
+    crepitationOutput = file.write('<u>' + 'Крепитация' + '</u>' + ', шум трения плевры над: ' + '<u>' + crepitationInputWhere + '</u>')
+    return crepitationOutput
+  elif crepitationUserInput == '2':
+    crepitationInputWhere = input("Локализация шума трения плевры? ")
+    crepitationOutput = file.write('Крепитация, ' + '<u>' + 'шум трения плевры над: ' + '</u>' + '<u>' + crepitationInputWhere + '</u>')
+    return crepitationOutput
+  else:
+    crepitationOutput = file.write('Крепитация, шум трения плевры над: ' + '</u>' + '<u>' + 'отсутствуют во всех отделах' + '</u>')
+    return crepitationOutput
+
+# Перкуторный звук легочный, тимпанический, коробочный, притупленный, тупой над
+def percussive_sound_func():
+  file.write('<br>')
+  percussiveSound = 'Перкуторный звук '
+  percussiveSoundUserUnput = input("Перкуторный звук у пациента: 1. легочный(норма) 2. тимпанический 3. коробочный 4. притупленный 5. тупой ")
+
+  if percussiveSoundUserUnput == '1':
+    percussiveSoundOutpute = file.write(percussiveSound + '<u>' + 'легочный' + '</u>' + ', тимпанический, коробочный, притупленный, тупой над:' + \
+                                        '<u>' + ' над всеми полями' + '</u>')
+    return percussiveSoundOutpute
+  elif percussiveSoundUserUnput == '2':
+    percussiveSoundWhereInput = input("Локализация перкуторного звука? ")
+    percussiveSoundOutpute = file.write(percussiveSound + 'легочный, ' + '<u>' + 'тимпанический' + '</u>' + ', коробочный, притупленный, тупой над:' + \
+                                        '<u>' + percussiveSoundWhereInput + '</u>')
+    return percussiveSoundOutpute                                    
+  elif percussiveSoundUserUnput == '3':
+    percussiveSoundWhereInput = input("Локализация перкуторного звука? ")
+    percussiveSoundOutpute = file.write(percussiveSound + 'легочный, тимпанический, ' + '<u>' + 'коробочный' + '</u>' + ', притупленный, тупой над:' + \
+                                        '<u>' + percussiveSoundWhereInput + '</u>')
+    return percussiveSoundOutpute
+  elif percussiveSoundUserUnput == '4':
+    percussiveSoundWhereInput = input("Локализация перкуторного звука? ")
+    percussiveSoundOutpute = file.write(percussiveSound + 'легочный, тимпанический, коробочный,' + '<u>' + 'притупленный' + '</u>' + ', тупой над:' + \
+                                        '<u>' + percussiveSoundWhereInput + '</u>')
+    return percussiveSoundOutpute
+  elif percussiveSoundUserUnput == '5':
+    percussiveSoundWhereInput = input("Локализация перкуторного звука? ")
+    percussiveSoundOutpute = file.write(percussiveSound + 'легочный, тимпанический, коробочный, притупленный, ' + '<u>' + 'тупой над: ' + '</u>' + \
+                                        '<u>' + percussiveSoundWhereInput + '</u>')
+    return percussiveSoundOutpute
+    
+# кашель, мокрота    
+def cough_func():
+  file.write('<br>')
+  cough = 'Кашель '
+  sputum = 'Мокрота. '
+  сoughUserInput = input("Характер кашля пациента: Кашель 1. сухой, 2. влажный, 3. лающий 4. нет ")
+
+  if сoughUserInput == '1':
+    coughWhereInput = input("Характер мокроты при кашле")
+    coughOutput = file.write(cough + '<u>' + 'сухой' + '</u>' + ' , влажный, лающий. ' + sputum + '<u>' + coughWhereInput + '</u>')
+    return coughOutput
+  elif сoughUserInput == '2':
+    coughWhereInput = input("Характер мокроты при кашле")
+    coughOutput = file.write(cough + 'сухой, ' + '<u>' + 'влажный ' + '</u>' + ' , лающий. ' + sputum + '<u>' + coughWhereInput + '</u>')
+    return coughOutput
+  elif сoughUserInput == '3':
+    coughWhereInput = input("Характер мокроты при кашле")
+    coughOutput = file.write(cough + 'сухой, влажный, ' + '<u>' + 'лающий. ' + '</u>' + sputum + '<u>' + coughWhereInput + '</u>')
+    return coughOutput
+  else:
+    coughOutput = file.write(cough + 'сухой, влажный, лающий. ' + sputum + '<u>' + 'нет' + '</u>')
+    return coughOutput
+
+def circulatory_organs_func():
+  file.write('<br>')
+  circulatoryOrgans = '<b>Органы кровообращения: </b>'
+  
+  pulseRate = input("Введите пульс пациента: ")
+  pulseRateOutput = file.write(circulatoryOrgans + '<u>' + pulseRate + '</u>' + ' в мин. ')
+
+  pulseRateChr = input("Характер пульса пациента: 1. ритмичный 2. аритмичный ")
+  if pulseRateChr == '1':
+    pulseRateChrOutput = file.write('<u>' + 'ритмичный' + '</u>' + ', аритмичный, наполнение ')
+  else:
+    pulseRateChrOutput = file.write('ритмичный, ' + '<u>' + 'аритмичный' + '</u>' + ', наполнение ')
+  
+  pulseRateNpl = input("Наполнение пульса пациента: 1. удовлетворительное 2. слабое ")
+  if pulseRateNpl == 1:
+    pulseRateNpl = file.write('<u>' + 'удовлетворительное' + '</u>')
+  else:
+    pulseRateNpl = file.write('<u>' + ' слабое' + '</u>')
+  
+  cssRate = ' ЧСС '
+  cssRateInput = input('Введите ЧСС пациента: ')
+  cssRateOutput = file.write(cssRate + '<u>' + cssRateInput + '</u>')
+
 
 # main app
 file = open('example.html', 'w') # открываем главный файл
@@ -357,6 +474,11 @@ respiratory_organs_func()
 shortness_breath()
 path_breath()
 auscultatively_func()
-rattle_func()
+dry_wheezing_func()
+wet_wheezing_func()
+crepitation_func()
+percussive_sound_func()
+cough_func()
+circulatory_organs_func()
 html_exit()
 file.close()
